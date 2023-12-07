@@ -3,40 +3,42 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import css from "./header.module.css";
 
 function Header() {
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+        <Navbar
+            collapseOnSelect
+            expand="lg"
+            className="bg-body-tertiary bg-light">
             <Container>
                 <LinkContainer to="/">
                     <Navbar.Brand>
-                        <p className={css.logo}>ST PIZZA</p>
+                        <p className={css.logo}>BC PIZZA</p>
                     </Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <LinkContainer to="/">
-                            <Nav.Item className="px-2">Home</Nav.Item>
+                            <Nav.Item>Home</Nav.Item>
                         </LinkContainer>
                         <LinkContainer to="/menu">
-                            <Nav.Item className="px-2">Menu</Nav.Item>
+                            <Nav.Item>Menu</Nav.Item>
                         </LinkContainer>
                         <LinkContainer to="/about">
-                            <Nav.Item className="px-2">About</Nav.Item>
+                            <Nav.Item>About</Nav.Item>
                         </LinkContainer>
                         <LinkContainer to="/contact">
-                            <Nav.Item className="px-2">Contact</Nav.Item>
+                            <Nav.Item>Contact</Nav.Item>
                         </LinkContainer>
                     </Nav>
                     <Nav>
-                        <LinkContainer to="/login">
-                            <Nav.Link>Login</Nav.Link>
+                        <LinkContainer to="/login" id="login">
+                            <Nav.Item>Login</Nav.Item>
                         </LinkContainer>
                         <LinkContainer to="/register">
-                            <Nav.Link>Register</Nav.Link>
+                            <Nav.Item id="register">Register</Nav.Item>
                         </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
