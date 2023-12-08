@@ -6,13 +6,13 @@ import Footer from "./Footer";
 
 const Layout = (props) => {
     return (
-        <React.Fragment>
+        <div className={css.wrapper}>
             <Header />
             <Container>
                 <main>{props.children}</main>
             </Container>
             <Footer />
-        </React.Fragment>
+        </div>
     );
 };
 

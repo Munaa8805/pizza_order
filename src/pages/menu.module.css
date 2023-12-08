@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+ 
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 1.5rem;
+    width: 100%;
+
+    margin-bottom: 4rem;
+}
+
+
+@media (max-width: 991px) {
+    .row {
+        flex-direction: column;
+        margin-bottom: 4rem;
+    }
+}
