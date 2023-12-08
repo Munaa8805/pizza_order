@@ -1,5 +1,5 @@
 .container {
-    width: calc(100vw / 4);
+    width: calc(100vw / 4 - 1.5rem);
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
