@@ -14,6 +14,12 @@ const Card = ({ image, price, description, name }) => {
                 </div>
                 <p className={css.price}>${price}</p>
             </div>
+            <div
+                style={{
+                    padding: "8px 16px",
+                }}>
+                <div className={css.btn}>Select</div>
+            </div>
         </div>
     );
 };

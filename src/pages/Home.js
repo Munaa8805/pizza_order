@@ -1,10 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import css from "./home.module.css";
 import image1 from "../assets/pizza.png";
 import Subtitle from "../components/Subtitle";
 import Button from "../components/Button";
 
 const Home = () => {
+    const history = useHistory();
+    const changeHandler = () => {
+        history.push("/menu");
+    };
+    const learnHandler = () => {
+        history.push("/about");
+    };
     return (
         <div className={css.wrapper}>
             <div className={css.content}>
@@ -27,10 +35,11 @@ const Home = () => {
                         style={{
                             backgroundColor: "#f13a01",
                             color: "#fff",
-                        }}>
+                        }}
+                        onClick={changeHandler}>
                         Order Now
                     </Button>
-                    <Button>Learn more</Button>
+                    <Button onClick={learnHandler}>Learn more</Button>
                 </div>
             </div>
             <div className={css.image_container}>

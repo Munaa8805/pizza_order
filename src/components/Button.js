@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ children, style }) => {
+const Button = ({ children, style, onClick }) => {
     const css = {
         fontSize: "14px",
         fontWeight: "600",
@@ -14,6 +14,9 @@ const Button = ({ children, style }) => {
             style={{
                 ...css,
                 ...style,
+            }}
+            onClick={() => {
+                onClick();
             }}>
             {children}
         </button>
