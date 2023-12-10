@@ -1,0 +1,85 @@
+.container {
+    width: 350px;
+    height: 450px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 16px;
+    position: relative;
+    box-sizing: border-box;
+}
+.logowrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.logowrapper img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+.wrapper label {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: #6b7280;
+    font-weight: 500;
+    
+}
+.wrapper input {
+    width: 100%;
+    padding: 6px;
+    font-size: 1rem;
+    border: 1px solid #6b7280;
+    border-radius: 6px;
+    outline: none;
+   
+
+}
+.btnwrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+
+}
+.btnwrapper button[type="submit"] {
+    background-color: #f12a01;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.btnwrapper button[type="submit"]:active {
+    border: none;
+    
+}
+.btnwrapper button[type="reset"] {
+    background-color: #6b7280;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.closebtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}

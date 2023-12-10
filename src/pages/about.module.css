@@ -18,3 +18,15 @@
     text-align: justify;
    
 }
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+  .container img {
+    width:250px;
+    height: 250px
+  }
+ 
+}
+
+
