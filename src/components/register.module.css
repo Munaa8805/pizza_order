@@ -1,0 +1,53 @@
+form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 350px;
+    position: relative;
+}
+.header {
+    text-align: center;
+    width: 100%;
+}
+.header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #f12a01;
+}
+
+.btnwrapper {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+.btnwrapper button[type="submit"] {
+    background-color: #f12a01;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.btnwrapper button[type="reset"] {
+ background-color: #6b7280;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.closebtn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+}

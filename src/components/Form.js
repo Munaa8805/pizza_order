@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import css from "./form.module.css";
+import Input from "./Input";
 
 const Form = () => {
     const [enteredValues, setEnteredValues] = useState({
@@ -29,6 +30,10 @@ const Form = () => {
         }
     };
     const closeHandler = (e) => {
+        setEnteredValues({
+            email: "",
+            password: "",
+        });
         history.push("/");
     };
     const handleInputChange = (identifier, event) => {
@@ -58,30 +63,28 @@ const Form = () => {
                     alt="logo"
                 />
             </div>
-            <div className={css.wrapper}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={enteredValues.email}
-                    onChange={(e) => handleInputChange("email", e)}
-                />
-            </div>
-            <div className={css.wrapper}>
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    minLength={4}
-                    maxLength={8}
-                    value={enteredValues.password}
-                    onChange={(e) => handleInputChange("password", e)}
-                />
-            </div>
+
+            <Input
+                type="email"
+                id="email"
+                placeholder="john@example.com"
+                name="email"
+                label="Email"
+                required
+                value={enteredValues.email}
+                onChange={(e) => handleInputChange("email", e)}
+            />
+            <Input
+                label="Password"
+                id="password"
+                name="password"
+                placeholder="********"
+                type="password"
+                minLength={4}
+                maxLength={8}
+                value={enteredValues.password}
+                onChange={(e) => handleInputChange("password", e)}
+            />
             <div className={css.btnwrapper}>
                 <button type="submit">Login</button>
                 <button type="reset" onClick={(e) => resetHandler(e)}>
