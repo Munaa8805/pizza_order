@@ -27,6 +27,33 @@ const Register = () => {
             alert("Passwords don't match");
             return;
         }
+        let data = JSON.stringify({
+            name: enteredValues.name,
+            email: enteredValues.email,
+            password: enteredValues.password,
+            address: enteredValues.address,
+            role: "user",
+        });
+        console.log(data);
+        fetch("https://pizzabackend-6am6.onrender.com/api/v1/auth/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+            body: data,
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log("res", res);
+                if (res.success) {
+                    localStorage.setItem("token", res.data.token);
+                    history.push("/");
+                }
+            })
+            .catch((err) => console.log("err", err));
+            
+
     };
     const closeHandler = (e) => {
         setEnteredValues({

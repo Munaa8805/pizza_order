@@ -28,6 +28,29 @@ const Form = () => {
             alert("Email must be at correct format");
             return;
         }
+      console.log("submitted", enteredValues);
+
+      fetch("https://pizzabackend-6am6.onrender.com/api/v1/auth/login", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+              email: enteredValues.email,
+              password: enteredValues.password,
+          }),
+      })
+          .then((res) => res.json())
+          .then((res) => {
+              console.log("res", res);
+              if (res.success) {
+                  localStorage.setItem("token", res.data.token);
+                  history.push("/");
+              }
+          })
+          .catch((err) => console.log("err", err));
+            
     };
     const closeHandler = (e) => {
         setEnteredValues({
