@@ -24,7 +24,6 @@ const Register = () => {
     };
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log("submitted", enteredValues);
         if (enteredValues.password !== enteredValues.passwordConfirm) {
             alert("Passwords don't match");
             return;
@@ -36,13 +35,11 @@ const Register = () => {
             address: enteredValues.address,
             role: "user",
         });
-        console.log(data);
         fetch("https://pizzabackend-6am6.onrender.com/api/v1/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-
             body: data,
         })
             .then((res) => res.json())
@@ -53,6 +50,14 @@ const Register = () => {
                     userCtx.setIsUserLoggedIn(true);
                     userCtx.setUserData(res.data);
                     history.push("/");
+                } else {
+                    setEnteredValues({
+                        email: "",
+                        password: "",
+                        name: "",
+                        address: "",
+                        passwordConfirm: "",
+                    });
                 }
             })
             .catch((err) => {

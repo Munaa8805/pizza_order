@@ -18,14 +18,6 @@ const Form = () => {
             alert("Please enter email and password");
             return;
         }
-        // if (enteredValues.password.length >= 4) {
-        //     alert("Password must be at most 4 characters long");
-        //     return;
-        // }
-        // if (enteredValues.password.length < 8) {
-        //     alert("Password must be at least 8 characters long");
-        //     return;
-        // }
         if (enteredValues.email.includes("@") === false) {
             alert("Email must be at correct format");
             return;
@@ -50,13 +42,18 @@ const Form = () => {
                     userCtx.setUserData(res.data);
                     userCtx.setIsUserLoggedIn(true);
                     history.push("/");
+                } else {
+                    setEnteredValues({
+                        email: "",
+                        password: "",
+                    });
                 }
             })
             .catch((err) => {
                 alert(err.message);
             });
     };
-    const closeHandler = (e) => {
+    const closeHandler = () => {
         setEnteredValues({
             email: "",
             password: "",
