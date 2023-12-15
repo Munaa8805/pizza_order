@@ -17,6 +17,7 @@ function Header() {
         userCtx.setUserData({});
         userCtx.setIsUserLoggedIn(false);
         localStorage.removeItem("pizzatoken");
+        localStorage.removeItem("pizzaUser");
         history.push("/");
     };
 
