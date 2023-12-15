@@ -1,11 +1,25 @@
+import React, { useState, useEffect, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import { LinkContainer } from "react-router-bootstrap";
+import { useHistory } from "react-router-dom";
+import UserHook from "../context/UserCtx";
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import css from "./header.module.css";
 
 function Header() {
+    const userCtx = useContext(UserHook);
+    const history = useHistory();
+
+    const logoutHandler = () => {
+        userCtx.setUserData({});
+        userCtx.setIsUserLoggedIn(false);
+        localStorage.removeItem("pizzatoken");
+        history.push("/");
+    };
+
     return (
         <header>
             <Navbar
@@ -34,14 +48,50 @@ function Header() {
                                 <Nav.Item>Contact</Nav.Item>
                             </LinkContainer>
                         </Nav>
-                        <Nav>
-                            <LinkContainer to="/login" id="login">
-                                <Nav.Item>Login</Nav.Item>
-                            </LinkContainer>
-                            <LinkContainer to="/register">
-                                <Nav.Item id="register">Register</Nav.Item>
-                            </LinkContainer>
-                        </Nav>
+                        {userCtx.isUserLoggedIn ? (
+                            <Nav>
+                                <NavDropdown
+                                    style={{
+                                        color: "#55595c",
+                                        fontSize: "16px",
+                                    }}
+                                    title={userCtx.userData.name}
+                                    id="basic-nav-dropdown">
+                                    <NavDropdown.Item
+                                        href="#"
+                                        style={{
+                                            color: "#55595c",
+                                            fontSize: "16px",
+                                        }}>
+                                        About me
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item
+                                        href="#"
+                                        style={{
+                                            color: "#55595c",
+                                            fontSize: "16px",
+                                        }}>
+                                        Orders
+                                    </NavDropdown.Item>
+
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item
+                                        href="#"
+                                        onClick={logoutHandler}>
+                                        <p className={css.logout}>Logout</p>
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                            </Nav>
+                        ) : (
+                            <Nav>
+                                <LinkContainer to="/login" id="login">
+                                    <Nav.Item>Login</Nav.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/register">
+                                    <Nav.Item id="register">Register</Nav.Item>
+                                </LinkContainer>
+                            </Nav>
+                        )}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

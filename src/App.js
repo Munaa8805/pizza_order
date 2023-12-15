@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import RegisterPage from "./pages/RegisterPage";
+import Profile from "./pages/Profile";
 
 function App() {
     return (
@@ -32,6 +33,9 @@ function App() {
                 </Route>
                 <Route path="/register">
                     <RegisterPage />
+                </Route>
+                <Route path="/profile">
+                    <Profile />
                 </Route>
                 <Route path="*">
                     <NotFound />

@@ -36,7 +36,23 @@ code {
     font-weight: 600;
     margin-right: 0;
 }
+#logout {
+     background-color: #f13a01;
+    padding: 8px 32px;
+    border: none;
+    border-radius: 99px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 0;
+}
+#basic-nav-dropdown {
+    color:#55595c;
+}
 
+#profile {
+    margin-bottom:0
+}
 @media only screen and (min-width: 990px) {
     #responsive-navbar-nav {
         justify-content: space-between;

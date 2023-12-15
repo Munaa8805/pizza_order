@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import css from "./form.module.css";
 import Input from "./Input";
+import UserHook from "../context/UserCtx";
 
 const Form = () => {
     const [enteredValues, setEnteredValues] = useState({
         email: "",
         password: "",
     });
+    const userCtx = useContext(UserHook);
     const history = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("submitted", enteredValues);
+
         if (enteredValues.email === "" || enteredValues.password === "") {
             alert("Please enter email and password");
             return;
@@ -28,29 +30,31 @@ const Form = () => {
             alert("Email must be at correct format");
             return;
         }
-      console.log("submitted", enteredValues);
 
-      fetch("https://pizzabackend-6am6.onrender.com/api/v1/auth/login", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
+        fetch("https://pizzabackend-6am6.onrender.com/api/v1/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
 
-          body: JSON.stringify({
-              email: enteredValues.email,
-              password: enteredValues.password,
-          }),
-      })
-          .then((res) => res.json())
-          .then((res) => {
-              console.log("res", res);
-              if (res.success) {
-                  localStorage.setItem("token", res.data.token);
-                  history.push("/");
-              }
-          })
-          .catch((err) => console.log("err", err));
-            
+            body: JSON.stringify({
+                email: enteredValues.email,
+                password: enteredValues.password,
+            }),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.success) {
+                    localStorage.setItem("pizzatoken", res.token);
+                    localStorage.setItem("pizzaUser", JSON.stringify(res.data));
+                    userCtx.setUserData(res.data);
+                    userCtx.setIsUserLoggedIn(true);
+                    history.push("/");
+                }
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
     };
     const closeHandler = (e) => {
         setEnteredValues({
