@@ -42,9 +42,11 @@ const ProfilePage = () => {
             .then((res) => res.json())
             .then((res) => {
                 if (res.success) {
+                    // localStorage.setItem("token", res.token);
+                    localStorage.setItem("pizzaUser", JSON.stringify(res.data));
                     userCtx.setUserData(res.data);
-                    getLocalStorage(res);
                     userCtx.setIsUserLoggedIn(true);
+                    alert("Profile updated successfully");
                 } else {
                     alert(res.error);
                 }
