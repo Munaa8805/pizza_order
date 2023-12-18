@@ -7,7 +7,7 @@ export const UserHook = (props) => {
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
     useEffect(() => {
-        if (localStorage.getItem("pizzatoken")) {
+        if (localStorage.getItem("token")) {
             setIsUserLoggedIn(true);
         }
         if (localStorage.getItem("pizzaUser")) {

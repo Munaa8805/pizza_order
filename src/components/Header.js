@@ -58,22 +58,33 @@ function Header() {
                                     }}
                                     title={userCtx.userData.name}
                                     id="basic-nav-dropdown">
-                                    <NavDropdown.Item
-                                        href="#"
-                                        style={{
-                                            color: "#55595c",
-                                            fontSize: "16px",
-                                        }}>
-                                        About me
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item
-                                        href="#"
-                                        style={{
-                                            color: "#55595c",
-                                            fontSize: "16px",
-                                        }}>
-                                        Orders
-                                    </NavDropdown.Item>
+                                    <LinkContainer to="/profile">
+                                        <NavDropdown.Item
+                                            style={{
+                                                color: "#55595c",
+                                                fontSize: "16px",
+                                            }}>
+                                            About me
+                                        </NavDropdown.Item>
+                                    </LinkContainer>
+                                    <LinkContainer to="/orders">
+                                        <NavDropdown.Item
+                                            style={{
+                                                color: "#55595c",
+                                                fontSize: "16px",
+                                            }}>
+                                            Orders
+                                        </NavDropdown.Item>
+                                    </LinkContainer>
+                                    <LinkContainer to="/password-change">
+                                        <NavDropdown.Item
+                                            style={{
+                                                color: "#55595c",
+                                                fontSize: "16px",
+                                            }}>
+                                            Password change
+                                        </NavDropdown.Item>
+                                    </LinkContainer>
 
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item

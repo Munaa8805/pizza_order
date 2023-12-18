@@ -37,12 +37,15 @@ const Form = () => {
             .then((res) => res.json())
             .then((res) => {
                 if (res.success) {
-                    localStorage.setItem("pizzatoken", res.token);
+
+                    localStorage.setItem("token", res.token);
                     localStorage.setItem("pizzaUser", JSON.stringify(res.data));
                     userCtx.setUserData(res.data);
                     userCtx.setIsUserLoggedIn(true);
                     history.push("/");
                 } else {
+
+                    alert(res.error);
                     setEnteredValues({
                         email: "",
                         password: "",

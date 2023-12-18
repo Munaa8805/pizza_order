@@ -1,0 +1,12 @@
+.btncontainer {
+ 
+ width:100%
+}
+.btncontainer button {
+    background:red;
+    width:100%;
+    padding:6px 12px;
+    font-size:1rem;
+    font-weight:600;
+
+}

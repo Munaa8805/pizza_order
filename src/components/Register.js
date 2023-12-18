@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import UserHook from "../context/UserCtx";
 import Input from "./Input";
 import css from "./register.module.css";
-import { useHistory } from "react-router-dom";
 
 const Register = () => {
     const [enteredValues, setEnteredValues] = useState({
@@ -45,12 +45,13 @@ const Register = () => {
             .then((res) => res.json())
             .then((res) => {
                 if (res.success) {
-                    localStorage.setItem("pizzatoken", res.token);
+                    localStorage.setItem("token", res.token);
                     localStorage.setItem("pizzaUser", JSON.stringify(res.data));
                     userCtx.setIsUserLoggedIn(true);
                     userCtx.setUserData(res.data);
                     history.push("/");
                 } else {
+                    alert(res.error);
                     setEnteredValues({
                         email: "",
                         password: "",

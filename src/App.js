@@ -7,7 +7,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import RegisterPage from "./pages/RegisterPage";
-import Profile from "./pages/Profile";
+import ProfilePage from "./pages/ProfilePage";
+import PasswordChangePage from "./pages/PasswordChangePage";
 
 function App() {
     return (
@@ -35,7 +36,10 @@ function App() {
                     <RegisterPage />
                 </Route>
                 <Route path="/profile">
-                    <Profile />
+                    <ProfilePage />
+                </Route>
+                <Route path="/password-change">
+                    <PasswordChangePage />
                 </Route>
                 <Route path="*">
                     <NotFound />
